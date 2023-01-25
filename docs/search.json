@@ -32,6 +32,6 @@
     "href": "grandma_recipe.html#publishing-on-the-web",
     "title": "Grandma’s Glop Recipe",
     "section": "Publishing on the web",
-    "text": "Publishing on the web\nQuarto also makes it easy to publish your work on Github Pages!\nFollowing along with these instructions (using the Render to Docs option)\n\nTo get started, change your project configuration to use docs as the output-dir. For example:\n\nproject:\n  type: website\n  output-dir: docs\ntouch .nojekyll\n\nRender and push to Github.\nFinally, configure your GitHub repository to publish from the docs directory of your main branch."
+    "text": "Publishing on the web\nQuarto also makes it easy to publish your work on Github Pages!\nFollowing along with these instructions (using the Render to Docs option)\n\nTo get started, change your project configuration to use docs as the output-dir. For example:\n\nproject:\n  type: website\n  output-dir: docs\ntouch .nojekyll\n\nRender and push to Github.\nFinally, configure your GitHub repository to publish from the docs directory of your main branch. Not quite working though…"
   }
 ]

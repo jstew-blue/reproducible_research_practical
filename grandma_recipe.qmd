@@ -333,6 +333,6 @@ touch .nojekyll
 
 2. Render and push to Github.
 
-3. Finally, configure your GitHub repository to publish from the docs directory of your main branch.
+3. Finally, configure your GitHub repository to publish from the docs directory of your main branch. Not quite working though...
 
 ## References
