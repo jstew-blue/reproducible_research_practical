@@ -319,7 +319,7 @@ Quarto also makes it easy to publish your work on `Github Pages`!
 
 Following along with [these instructions](https://quarto.org/docs/publishing/github-pages.html) (using the `Render to Docs` option)
 
-To get started, change your project configuration to use docs as the output-dir. For example:
+1. To get started, change your project configuration to use docs as the output-dir. For example:
 
 ```
 project:
@@ -330,5 +330,9 @@ project:
 ```
 touch .nojekyll
 ```
+
+2. Render and push to Github.
+
+3. Finally, configure your GitHub repository to publish from the docs directory of your main branch.
 
 ## References

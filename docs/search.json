@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "grandma_recipe.html",
+    "href": "grandma_recipe.html",
+    "title": "Grandma’s Glop Recipe",
+    "section": "",
+    "text": "Code\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "grandma_recipe.html#tag-it",
+    "href": "grandma_recipe.html#tag-it",
+    "title": "Grandma’s Glop Recipe",
+    "section": "Dedication to grandma",
+    "text": "Dedication to grandma\nThis recipe came from my grandmother whom I always remember used to say:\n\nYou only get to be young once,\nBut you can stay immature forever\n–grandma\n\nNotice in the above that we used > to make a block quote and we also used two spaces (which, of course, you cannot see!) at the end of each line to force a line break.\nI leave this dedication with a picture of grandma:\n\n\n\nA pic of grandma\n\n\nHoly Oversized Image Batman! You have got to be kidding me! There must be some way to make that image smaller.\nWith Quarto, there is a way\n![A pic of grandma](figures/Warthog4.jpg){width=50%}\n![A pic of grandma](figures/Warthog4.jpg){width=2 in}\nWe might come back to this Dedication at some point, so we have linked it to a tag. Note that it does not seem you can link to arbitrary text, but you can to section headers."
+  },
+  {
+    "objectID": "grandma_recipe.html#cooking-time-its-complicated",
+    "href": "grandma_recipe.html#cooking-time-its-complicated",
+    "title": "Grandma’s Glop Recipe",
+    "section": "Cooking time: It’s complicated",
+    "text": "Cooking time: It’s complicated\nNow, the big trick to getting grandma’s glop just right is cooking it for the proper length of time. Describing this is going to require that we cite some literature and also that we write down some equations…What fun! Let’s see how we do that with R Markdown. Cooking time \\(M\\) (for minutes) decreases as the square root of the cooking temperature \\(T\\), but increases as the \\(\\frac{3}{2}\\)-power of the elevation \\(a\\) (for altitude), in feet. For \\(300^\\circ \\leq T \\leq 500^\\circ\\) and \\(0\\leq a \\leq 5000\\), cooking time is \\[\nM = (20 - \\sqrt{T/4}) \\times \\biggl(\\frac{a+5000}{2500}\\biggr)^\\frac{3}{2}\n\\] Anyone that is really interested in writing technical mathematical documents should learn to use LaTeX directly. Thankfully, you can imbed R code within LaTeX much as can be done with R Markdown.\nWe should perhaps qualify this model with a few statements. This model was not empirically derived by rigorous tests, rather we guessed at it given similar work done on cooking times of Cassiopea jellies at altitude (Sharp et al. 2022) and for Orbicella with different microbiomes (Boville et al. 2023). But please bear in mind that we did not account for the issues noted by Gonzalez-Pech et al. (2021) which arise while using next generation oven technology. You can easily add citations by clicking “Addins” and “Insert Citations”\nClearly, it would be nice to have a table of cooking times, \\(M\\), for a few values of \\(T\\) and \\(a\\). Let’s take \\(T\\in\\{300, 350, 400, 450, 500\\}\\) and \\(a\\in\\{0, 1250, 2500, 3750, 5000\\}\\). Holy smokes! There will be 25 rows in that table! I don’t want to write that by hand!\nThankfully, we can use R to do it for us. We make a a data frame of values, then use a nifty function kable from the knitr package to make the table. Get ready, we are going to use some R:\n\n# first make the data frame\ntemps <- rep(seq(300,500,50), 5)\nalts <- rep(seq(0, 5000, 1250), each=5)\ntab <- tibble(T = temps, a = alts, M = (20-sqrt(temps/4)) * ((alts+5000)/2500) ^ (3/2))\n\nAnd then we print it and it looks like this. (Check out how I hid that code block)\n\n\n\n\n  \n\n\n\nCooking times, \\(M\\), at various temperatures, \\(T\\), and elevations, \\(a\\)."
+  },
+  {
+    "objectID": "grandma_recipe.html#calc-quants",
+    "href": "grandma_recipe.html#calc-quants",
+    "title": "Grandma’s Glop Recipe",
+    "section": "Calculating Recipe Quantities",
+    "text": "Calculating Recipe Quantities\nThis could be done several ways, but let us simply look at how we would list the ingredients.\nFirst, make an R code block where we declare the quantities:\n\namts <- c(Flour = 2, Eggs = 4, Raisins = 0.5, Cashews = 0.5)\nmult <- 40 # make a mult-fold version of the recipe\naa <- amts * mult\n\nThen access those variables inline in the list. For example: In order to make 40 times the standard recipe, you will need\n\n80 cups flour\n160 eggs\n40 lbs of Grandma Gorp:\n\n20 lbs raisins\n20 lbs cashews\n\n\nAnd, if you want to make \\(\\pi\\) times the standard recipe you need:\n\n6.2831853 cups flour\n12.5663706 eggs\n3.1415927 lbs of Grandma Gorp:\n\n1.5707963 lbs raisins\n1.5707963 lbs cashews"
+  },
+  {
+    "objectID": "grandma_recipe.html#publishing-on-the-web",
+    "href": "grandma_recipe.html#publishing-on-the-web",
+    "title": "Grandma’s Glop Recipe",
+    "section": "Publishing on the web",
+    "text": "Publishing on the web\nQuarto also makes it easy to publish your work on Github Pages!\nFollowing along with these instructions (using the Render to Docs option)\n\nTo get started, change your project configuration to use docs as the output-dir. For example:\n\nproject:\n  type: website\n  output-dir: docs\ntouch .nojekyll\n\nRender and push to Github.\nFinally, configure your GitHub repository to publish from the docs directory of your main branch."
+  }
+]
